@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import logo  from "../../assets/images/logo.png"
+import Hero from "../Hero/Hero";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -155,6 +156,7 @@ const Header = () => {
           )}
         </Transition>
       </nav>
+      <Hero></Hero>
     </div>
   );
 };
