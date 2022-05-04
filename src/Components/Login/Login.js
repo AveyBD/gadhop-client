@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   return (
@@ -97,6 +98,9 @@ const Login = () => {
             </div>
           </div>
         </form>
+        {
+            <SocialLogin></SocialLogin>
+        }
       </div>
     </div>
   );
