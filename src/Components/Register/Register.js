@@ -14,6 +14,27 @@ const Register = () => {
         ></div>
         <form>
           <div className="flex flex-col gap-4 px-0 py-4">
+          <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                />
+              </svg>
+              <input
+                className="py-2 pl-10 border rounded bg-green-50 border-green-300 w-full"
+                placeholder="Your Name"
+                type="text"
+              />
+            </div>
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +96,7 @@ const Register = () => {
                     d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                   />
                 </svg>{" "}
-                Login
+                Register
               </button>
               <button className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-2 flex flex-row justify-center items-center gap-1">
                 <svg
@@ -92,7 +113,7 @@ const Register = () => {
                     d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                   />
                 </svg>{" "}
-                Sign-up
+                Login
               </button>
             </div>
             <div className="w-full flex flex-row justify-end">

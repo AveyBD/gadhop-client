@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import SocialLogin from "./SocialLogin";
+import { AiOutlineMail } from "react-icons/ai";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const handleReg = () =>{
+navigate('/register')
+  }
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
       <div className="bg-green-100 border-t-2 border-gray-50 rounded-xl shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
@@ -34,20 +40,8 @@ const Login = () => {
               />
             </div>
             <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
+              <AiOutlineMail className="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11"></AiOutlineMail>
+              
               <input
                 className="py-2 bg-green-50 pl-10 border rounded border-green-300 w-full"
                 placeholder="Password"
@@ -75,7 +69,7 @@ const Login = () => {
                 </svg>{" "}
                 Login
               </button>
-              <button className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-2 flex flex-row justify-center items-center gap-1">
+              <button onClick={handleReg} className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-2 flex flex-row justify-center items-center gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5"
