@@ -156,7 +156,6 @@ const Header = () => {
           )}
         </Transition>
       </nav>
-      <Hero></Hero>
     </div>
   );
 };
