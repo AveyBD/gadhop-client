@@ -1,15 +1,17 @@
 import React from "react";
-import logo from "../../assets/images/logo.png";
-import SocialLogin from "./SocialLogin";
+import SocialLogin from "../Login/SocialLogin";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
       <div className="bg-green-100 border-t-2 border-gray-50 rounded-xl shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
         <div className="text-center w-full font-bold text-3xl text-gray-600 p-4">
-          Login To Access
+          Register Your Account
         </div>
-        <div className="w-full bg-gray-200 my-3" style={{height:"1px"}}></div>
+        <div
+          className="w-full bg-gray-200 my-3"
+          style={{ height: "1px" }}
+        ></div>
         <form>
           <div className="flex flex-col gap-4 px-0 py-4">
             <div>
@@ -90,7 +92,7 @@ const Login = () => {
                     d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                   />
                 </svg>{" "}
-                Register
+                Sign-up
               </button>
             </div>
             <div className="w-full flex flex-row justify-end">
@@ -98,12 +100,10 @@ const Login = () => {
             </div>
           </div>
         </form>
-        {
-            <SocialLogin></SocialLogin>
-        }
+        {<SocialLogin></SocialLogin>}
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
