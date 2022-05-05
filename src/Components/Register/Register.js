@@ -2,14 +2,24 @@ import {
   faEnvelope,
   faHatCowboy,
   faLock,
+  faUnlock,
   faUserAltSlash,
+  faUserPlus,
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import SocialLogin from "../Login/SocialLogin";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const handleToLogin = () => {
+    navigate("/login");
+  };
+  const handleRegister = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
       <div className="bg-green-100 border-t-2 border-gray-50 rounded-xl shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
@@ -20,7 +30,7 @@ const Register = () => {
           className="w-full bg-gray-200 my-3"
           style={{ height: "1px" }}
         ></div>
-        <form>
+        <form onSubmit={handleRegister}>
           <div className="flex flex-col gap-4 px-0 py-4">
             <div>
               <FontAwesomeIcon
@@ -60,37 +70,20 @@ const Register = () => {
                 className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-0 flex flex-row justify-center items-center gap-1"
                 type="submit"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                  />
-                </svg>{" "}
+                <FontAwesomeIcon
+                  className="w-5"
+                  icon={faUserPlus}
+                ></FontAwesomeIcon>
                 Register
               </button>
-              <button className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-2 flex flex-row justify-center items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
+              <button
+                onClick={handleToLogin}
+                className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-2 flex flex-row justify-center items-center gap-1"
+              >
+                <FontAwesomeIcon
                   className="w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                  />
-                </svg>{" "}
+                  icon={faUnlock}
+                ></FontAwesomeIcon>
                 Login
               </button>
             </div>

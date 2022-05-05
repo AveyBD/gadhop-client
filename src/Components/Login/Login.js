@@ -19,6 +19,9 @@ const Login = () => {
   const handleReg = () => {
     navigate("/register");
   };
+  const handleLogin = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
       <div className="bg-green-100 border-t-2 border-gray-50 rounded-xl shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
@@ -29,7 +32,7 @@ const Login = () => {
           className="w-full bg-gray-200 my-3"
           style={{ height: "1px" }}
         ></div>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="flex flex-col gap-4 px-0 py-4">
             <div>
               <FontAwesomeIcon
@@ -59,8 +62,11 @@ const Login = () => {
               <button
                 className="border border-green-500 hover:bg-green-500 hover:text-white duration-100 ease-in-out w-6/12 text-green-500 p-0 flex flex-row justify-center items-center gap-1"
                 type="submit"
-              >               <FontAwesomeIcon className="w-5" icon={faUnlock}></FontAwesomeIcon>
-
+              >
+                <FontAwesomeIcon
+                  className="w-5"
+                  icon={faUnlock}
+                ></FontAwesomeIcon>
                 Login
               </button>
               <button
