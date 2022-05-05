@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import Hero from "../Hero/Hero";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,7 @@ const Header = () => {
   const [user] = useAuthState(auth);
   const [isOpen, setIsOpen] = useState(false);
   const [isUserOpen, setIsUserOpen] = useState(false);
+  const navigate = useNavigate();
   const handleLogout = () => {
     signOut(auth);
   };
@@ -28,6 +29,9 @@ const Header = () => {
                   className="h-fit w-fit pl-4 md:pl-0"
                   src={logo}
                   alt="Gadget Hope"
+                  onClick={() => {
+                    navigate("/");
+                  }}
                 />
               </div>
               <div className="hidden md:block">
