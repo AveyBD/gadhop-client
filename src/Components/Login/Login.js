@@ -24,7 +24,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
-    const pass = passRef.current.value 
+    const pass = passRef.current.value;
     console.log(email, pass);
   };
   return (
