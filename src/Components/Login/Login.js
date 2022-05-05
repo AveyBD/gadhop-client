@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import SocialLogin from "./SocialLogin";
 import { AiOutlineMail } from "react-icons/ai";
@@ -13,11 +13,22 @@ import {
   faUserAlt,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loader from "../Shared/Loader";
 
 const Login = () => {
   const emailRef = useRef("");
   const passRef = useRef("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const form = location.state?.from?.pathname || "/";
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
   const handleReg = () => {
     navigate("/register");
   };
@@ -25,8 +36,17 @@ const Login = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const pass = passRef.current.value;
-    console.log(email, pass);
+    signInWithEmailAndPassword(email, pass)
   };
+  if (loading) {
+    return <Loader></Loader>;
+  }
+  if (error) {
+    alert(error);
+  }
+  if (user) {
+    navigate(form, { replace: true });
+  }
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
       <div className="bg-green-100 border-t-2 border-gray-50 rounded-xl shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
