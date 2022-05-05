@@ -9,11 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Login/SocialLogin";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Loader from "../Shared/Loader";
 
 const Register = () => {
@@ -27,6 +27,8 @@ const Register = () => {
   const handleToLogin = () => {
     navigate("/login");
   };
+  const location = useLocation();
+  const form = location.state?.from?.pathname || "/";
   const handleRegister = (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
@@ -35,9 +37,16 @@ const Register = () => {
     console.log(name, email, pass);
     createUserWithEmailAndPassword(email, pass);
   };
-  if(loading){
-    return <Loader></Loader>
+  if (loading) {
+    return <Loader></Loader>;
   }
+  if (error) {
+    alert(error);
+  }
+  if (user) {
+    navigate(form, { replace: true });
+  }
+
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
       <div className="bg-green-100 border-t-2 border-gray-50 rounded-xl shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
