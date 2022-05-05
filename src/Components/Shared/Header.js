@@ -9,12 +9,12 @@ const Header = () => {
   return (
     <div>
       <nav className="bg-white border-b-2">
-        <div className="max-w-7xl flex justify-between items-center mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex order-last md:order-first items-center justify-between h-16">
+        <div className="max-w-7xl flex-row-reverse md:flex-row flex justify-between items-center mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-row-reverse md:flex-row order-last md:order-first items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <img
-                  className="h-fit w-fit"
+                  className="h-fit w-fit pl-4 md:pl-0"
                   src={logo}
                   alt="Gadget Hope"
                 />
