@@ -21,7 +21,7 @@ const Register = () => {
   const emailRef = useRef("");
   const passRef = useRef("");
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
   const navigate = useNavigate();
   const handleToLogin = () => {
