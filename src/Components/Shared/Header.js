@@ -5,10 +5,17 @@ import logo from "../../assets/images/logo.png";
 import Hero from "../Hero/Hero";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAlt, faUserAltSlash } from "@fortawesome/free-solid-svg-icons";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
   const [isOpen, setIsOpen] = useState(false);
   const [isUserOpen, setIsUserOpen] = useState(false);
+  const handleLogout = () => {
+    signOut(auth);
+  };
 
   return (
     <div>
@@ -119,8 +126,9 @@ const Header = () => {
               >
                 <span className="sr-only">Open Profile menu</span>
                 {!isOpen ? (
-                 <FontAwesomeIcon icon={faUserAlt}></FontAwesomeIcon>
-                ) : ( <FontAwesomeIcon icon={faUserAltSlash}></FontAwesomeIcon>
+                  <FontAwesomeIcon icon={faUserAlt}></FontAwesomeIcon>
+                ) : (
+                  <FontAwesomeIcon icon={faUserAltSlash}></FontAwesomeIcon>
                 )}
               </button>
               {/* nav end  */}
@@ -192,40 +200,46 @@ const Header = () => {
           {(ref) => (
             <div className="md:w-60 md:ml-auto" id="profile-user-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <Link
-                  to="/login"
-                  className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Login
-                </Link>
+                {user ? (
+                  <>
+                    <Link
+                      to="/"
+                      className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      My Items
+                    </Link>
 
-                <Link
-                  to="/register"
-                  className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Register
-                </Link>
+                    <Link
+                      to="/"
+                      className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Add Items
+                    </Link>
 
-                <Link
-                  to="/"
-                  className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  My Items
-                </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Signout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                      className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Login
+                    </Link>
 
-                <Link
-                  to="/"
-                  className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Add Items
-                </Link>
-
-                <Link
-                  to="/"
-                  className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Signout
-                </Link>
+                    <Link
+                      to="/register"
+                      className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Register
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           )}

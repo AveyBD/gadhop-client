@@ -1,10 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
+import Manage from "./Components/Manage/Manage";
 import Register from "./Components/Register/Register";
 import Footer from "./Components/Shared/Footer";
 import Header from "./Components/Shared/Header";
 import Loader from "./Components/Shared/Loader";
+import RequiredAuth from "./Components/Shared/RequiredAuth";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/loader" element={<Loader/>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/manage" element={<RequiredAuth><Manage/></RequiredAuth>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
