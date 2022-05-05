@@ -44,14 +44,14 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/"
+                    to="/manage"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Manage Inventory
                   </Link>
 
                   <Link
-                    to="/"
+                    to="/myproduct"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     My Items
