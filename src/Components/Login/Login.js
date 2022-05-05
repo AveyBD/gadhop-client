@@ -44,6 +44,7 @@ const Login = () => {
                 className="py-2 pl-10 border rounded bg-green-50 border-green-300 w-full"
                 placeholder="Email address"
                 type="email"
+                required
               />
             </div>
             <div>
@@ -56,6 +57,7 @@ const Login = () => {
                 className="py-2 bg-green-50 pl-10 border rounded border-green-300 w-full"
                 placeholder="Password"
                 type="password"
+                required
               />
             </div>
             <div className="w-full flex flex-row gap-2">
