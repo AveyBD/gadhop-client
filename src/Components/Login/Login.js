@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowAltCircleRight,
   faCoffee,
+  faEnvelope,
   faLock,
   faUnlock,
   faUserAlt,
@@ -33,7 +34,7 @@ const Login = () => {
             <div>
               <FontAwesomeIcon
                 className="font-medium text-xl text-gray-600 absolute py-2.5 w-11"
-                icon={faUserAlt}
+                icon={faEnvelope}
               ></FontAwesomeIcon>
 
               <input
