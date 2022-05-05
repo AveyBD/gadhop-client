@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import SocialLogin from "./SocialLogin";
@@ -15,12 +15,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
+  const emailRef = useRef("");
+  const passRef = useRef("");
   const navigate = useNavigate();
   const handleReg = () => {
     navigate("/register");
   };
   const handleLogin = (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const pass = passRef.current.value 
+    console.log(email, pass);
   };
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
@@ -44,6 +49,7 @@ const Login = () => {
                 className="py-2 pl-10 border rounded bg-green-50 border-green-300 w-full"
                 placeholder="Email address"
                 type="email"
+                ref={emailRef}
                 required
               />
             </div>
@@ -57,6 +63,7 @@ const Login = () => {
                 className="py-2 bg-green-50 pl-10 border rounded border-green-300 w-full"
                 placeholder="Password"
                 type="password"
+                ref={passRef}
                 required
               />
             </div>

@@ -8,17 +8,24 @@ import {
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import SocialLogin from "../Login/SocialLogin";
 
 const Register = () => {
+  const nameRef = useRef('');
+  const emailRef = useRef('');
+  const passRef = useRef('');
   const navigate = useNavigate();
   const handleToLogin = () => {
     navigate("/login");
   };
   const handleRegister = (e) => {
     e.preventDefault();
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const pass = passRef.current.value;
+    console.log(name, email, pass);
   };
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
@@ -42,6 +49,7 @@ const Register = () => {
                 placeholder="Your Name"
                 type="text"
                 required
+                ref={nameRef}
               />
             </div>
             <div>
@@ -54,6 +62,7 @@ const Register = () => {
                 placeholder="Email address"
                 type="email"
                 required
+                ref={emailRef}
               />
             </div>
             <div>
@@ -66,6 +75,7 @@ const Register = () => {
                 placeholder="Password"
                 type="password"
                 required
+                ref={passRef}
               />
             </div>
             <div className="w-full flex flex-row gap-2">
