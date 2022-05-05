@@ -11,11 +11,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import SocialLogin from "../Login/SocialLogin";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { ToastContainer } from "react-toastify";
 
 const Register = () => {
-  const nameRef = useRef('');
-  const emailRef = useRef('');
-  const passRef = useRef('');
+  const nameRef = useRef("");
+  const emailRef = useRef("");
+  const passRef = useRef("");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const navigate = useNavigate();
   const handleToLogin = () => {
     navigate("/login");
@@ -26,6 +32,10 @@ const Register = () => {
     const email = emailRef.current.value;
     const pass = passRef.current.value;
     console.log(name, email, pass);
+    createUserWithEmailAndPassword(email, pass);
+    if(loading){
+      
+    }
   };
   return (
     <div className="bg-white min-h-screen w-screen flex flex-col justify-center items-center">
@@ -107,6 +117,7 @@ const Register = () => {
         </form>
         {<SocialLogin></SocialLogin>}
       </div>
+      <ToastContainer />
     </div>
   );
 };
