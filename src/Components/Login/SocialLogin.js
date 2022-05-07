@@ -3,7 +3,7 @@ import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 import Loader from "../Shared/Loader";
@@ -12,6 +12,8 @@ const SocialLogin = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithGithub, user, loading, error] = useSignInWithGithub(auth);
   const navigate = useNavigate();
+  const location = useLocation();
+  const form = location.state?.from?.pathname || "/";
 
   const handleGLogin = () => {
     signInWithGoogle();
@@ -25,7 +27,7 @@ const SocialLogin = () => {
   }
 
   if (gUser || user) {
-    navigate("/");
+    navigate(form, { replace: true });
   }
 
   return (
