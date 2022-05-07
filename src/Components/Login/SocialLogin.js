@@ -1,17 +1,49 @@
 import React from "react";
+import {
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase.init";
+import Loader from "../Shared/Loader";
 
 const SocialLogin = () => {
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithGithub, user, loading, error] = useSignInWithGithub(auth);
+  const navigate = useNavigate();
+
+  const handleGLogin = () => {
+    signInWithGoogle();
+  };
+
+  if (gError || error) {
+    toast(gError?.message || error?.message);
+  }
+  if (gLoading || loading) {
+    return <Loader></Loader>;
+  }
+
+  if (gUser || user) {
+    navigate("/");
+  }
+
   return (
     <div>
       <div className="my-2 mb-2 flex flex-row justify-center">
-        <span className="absolute mb-2 bg-green-100 mb-2 px-4">Social Login</span>
+        <span className="absolute mb-2 bg-green-100 mb-2 px-4">
+          Social Login
+        </span>
         <div
           className="w-full bg-gray-400 mt-3 mb-3"
           style={{ height: "2px" }}
         ></div>
       </div>
       <div className="w-full flex flex-col mt-2 gap-2">
-        <button className="bg-red-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-red-600 duration-100 ease-in-out">
+        <button
+          onClick={handleGLogin}
+          className="bg-red-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-red-600 duration-100 ease-in-out"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -31,8 +63,11 @@ const SocialLogin = () => {
           </svg>
           Sign-in with Google
         </button>
-       
-        <button className="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-gray-800 duration-100 ease-in-out">
+
+        <button
+          onClick={() => signInWithGithub()}
+          className="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-gray-800 duration-100 ease-in-out"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -53,6 +88,7 @@ const SocialLogin = () => {
           Sign-in with Github
         </button>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
