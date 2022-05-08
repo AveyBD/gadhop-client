@@ -1,9 +1,24 @@
-import { faEye, faPenToSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faPenToSquare,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Items = ({ product }) => {
+  const handleDelete = (id) => {
+    const url = `https://gadhop.herokuapp.com/view/${id}`;
+    const askToSure = window.confirm("Are You Sure?");
+    if (askToSure) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  };
   return (
     <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
       <td
@@ -16,24 +31,18 @@ const Items = ({ product }) => {
       <td className="px-6 py-4">{product.supplier}</td>
       <td className="px-6 py-4">{product.price}</td>
       <td className="px-6 py-4 flex gap-1">
-        <Link
-          to={`/view/${product._id}`}
-          className="text-green-600"
-        >
-          <FontAwesomeIcon icon={faEye}/>
+        <Link to={`/view/${product._id}`} className="text-green-600">
+          <FontAwesomeIcon icon={faEye} />
         </Link>
-        <Link
-          to={`/view/${product._id}`}
-          className="text-green-800"
-        >
-          <FontAwesomeIcon icon={faPenToSquare}/>
+        <Link to={`/view/${product._id}`} className="text-green-800">
+          <FontAwesomeIcon icon={faPenToSquare} />
         </Link>
-        <Link
-          to={`/view/${product._id}`}
+        <button
+          onClick={() => handleDelete(product._id)}
           className="font-xl text-red-800"
         >
-          <FontAwesomeIcon icon={faTrashAlt}/>
-        </Link>
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
       </td>
     </tr>
   );
