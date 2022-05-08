@@ -147,7 +147,7 @@ const AddItems = () => {
                       id="quantity"
                       name="quantity"
                       className="shadow-sm pl-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm: border border-gray-300 rounded-md"
-                      placeholder="Apple Computer, Inc."
+                      placeholder="10"
                       defaultValue={""}
                     />
                   </div>
