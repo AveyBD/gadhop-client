@@ -13,7 +13,18 @@ const AddItems = () => {
     const price = priceRef.current.value;
     const description = descriptionRef.current.value;
     const imgURL = imgurlRef.current.value;
-    console.log(name);
+    const product = {name, supplier, price, description, imgURL};
+    console.log(product);
+    const url = "http://localhost:5000/product";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div className="md:w-3/4 mt-3 md:mt-6 mx-auto">
@@ -159,7 +170,7 @@ const AddItems = () => {
                   type="submit"
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm  font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Save
+                  Add Product
                 </button>
               </div>
             </div>
