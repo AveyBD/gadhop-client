@@ -13,7 +13,7 @@ const MyItems = () => {
     }, []);
     return (
         <div>
-            <h2>User Added Items here </h2>
+            <h2>User Added Items here {myProducts.length} </h2>
         </div>
     );
 };
