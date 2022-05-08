@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Items = ({ product }) => {
   return (
@@ -13,12 +14,12 @@ const Items = ({ product }) => {
       <td className="px-6 py-4">{product.supplier}</td>
       <td className="px-6 py-4">{product.price}</td>
       <td className="px-6 py-4 text-right">
-        <a
-          href="#"
+        <Link
+          to={`/view/${product._id}`}
           className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
         >
           View
-        </a>
+        </Link>
       </td>
     </tr>
   );
