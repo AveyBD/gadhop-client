@@ -34,7 +34,7 @@ const MyItems = () => {
                 Price
               </th>
               <th scope="col" className="px-6 py-3">
-                <span className="sr-only">View</span>
+                Action
               </th>
             </tr>
           </thead>

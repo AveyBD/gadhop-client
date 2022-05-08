@@ -1,3 +1,5 @@
+import { faEye, faPenToSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -13,12 +15,24 @@ const Items = ({ product }) => {
       <td className="px-6 py-4">{product.quantity}</td>
       <td className="px-6 py-4">{product.supplier}</td>
       <td className="px-6 py-4">{product.price}</td>
-      <td className="px-6 py-4 text-right">
+      <td className="px-6 py-4 flex gap-1">
         <Link
           to={`/view/${product._id}`}
-          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          className="text-green-600"
         >
-          View
+          <FontAwesomeIcon icon={faEye}/>
+        </Link>
+        <Link
+          to={`/view/${product._id}`}
+          className="text-green-800"
+        >
+          <FontAwesomeIcon icon={faPenToSquare}/>
+        </Link>
+        <Link
+          to={`/view/${product._id}`}
+          className="font-xl text-red-800"
+        >
+          <FontAwesomeIcon icon={faTrashAlt}/>
         </Link>
       </td>
     </tr>
