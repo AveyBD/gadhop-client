@@ -2,8 +2,8 @@ import React from "react";
 
 const AddItems = () => {
   return (
-    <div className="md:w-3/4 md:mt-6 mx-auto">
-      <h3 className="text-3xl text-center font-bold leading-6 text-gray-900 md:mb-8">
+    <div className="md:w-3/4 mt-3 md:mt-6 mx-auto">
+      <h3 className="text-3xl text-center font-bold leading-6 text-gray-900 mb-3 md:mb-8">
         Add Product
       </h3>
       <div className="md:grid md:grid-cols-3 md:gap-6">
