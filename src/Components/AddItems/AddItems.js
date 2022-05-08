@@ -3,16 +3,33 @@ import React from "react";
 const AddItems = () => {
   return (
     <div className="md:w-3/4 md:mt-6 mx-auto">
+      <h3 className="text-3xl text-center font-bold leading-6 text-gray-900 md:mb-8">
+        Add Product
+      </h3>
       <div className="md:grid md:grid-cols-3 md:gap-6">
         <div className="md:col-span-1">
           <div className="px-4 sm:px-0">
-            <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Add Product
-            </h3>
             <p className="mt-1  text-gray-600">
               Add Your Product info here. Please Follow the rules before adding
               the products.
             </p>
+            <h2 className="text-xl font-bold">Rules:</h2>
+            <div class="bg-white rounded-lg shadow w-full">
+              <ul class="divide-y divide-gray-100">
+                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                  Add Name Properly.
+                </li>
+                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                  Search Before Add.
+                </li>
+                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                  Careful about supplier name.
+                </li>
+                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                  Use imgBB for image link.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="mt-5 md:mt-0 md:col-span-2">
@@ -32,6 +49,23 @@ const AddItems = () => {
                       name="name"
                       className="shadow-sm pl-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm: border border-gray-300 rounded-md"
                       placeholder="iPhone 12 Pro Max"
+                      defaultValue={""}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="supplier"
+                    className="block  font-medium text-gray-700"
+                  >
+                    Supplier Name
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="supplier"
+                      name="supplier"
+                      className="shadow-sm pl-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm: border border-gray-300 rounded-md"
+                      placeholder="Apple Computer, Inc."
                       defaultValue={""}
                     />
                   </div>
