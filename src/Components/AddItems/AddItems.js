@@ -1,14 +1,19 @@
 import React, { useRef } from "react";
 
 const AddItems = () => {
-  const name = useRef("");
-  const supplier = useRef("");
-  const price = useRef();
-  const description = useRef("");
-  const imgurl = useRef("");
+  const nameRef = useRef("");
+  const supplierRef = useRef("");
+  const priceRef = useRef();
+  const descriptionRef = useRef("");
+  const imgurlRef = useRef("");
   const handleAddItem = (e) => {
     e.preventDefault();
-    console.log("clicked");
+    const name = nameRef.current.value;
+    const supplier = supplierRef.current.value;
+    const price = priceRef.current.value;
+    const description = descriptionRef.current.value;
+    const imgURL = imgurlRef.current.value;
+    console.log(name);
   };
   return (
     <div className="md:w-3/4 mt-3 md:mt-6 mx-auto">
@@ -54,6 +59,7 @@ const AddItems = () => {
                   </label>
                   <div className="mt-1">
                     <input
+                      ref={nameRef}
                       id="name"
                       name="name"
                       className="shadow-sm pl-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm: border border-gray-300 rounded-md"
@@ -71,6 +77,7 @@ const AddItems = () => {
                   </label>
                   <div className="mt-1">
                     <input
+                      ref={supplierRef}
                       id="supplier"
                       name="supplier"
                       className="shadow-sm pl-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm: border border-gray-300 rounded-md"
@@ -92,6 +99,7 @@ const AddItems = () => {
                         $
                       </span>
                       <input
+                        ref={priceRef}
                         type="number"
                         name="price"
                         id="price"
@@ -110,6 +118,7 @@ const AddItems = () => {
                   </label>
                   <div className="mt-1">
                     <textarea
+                      ref={descriptionRef}
                       id="description"
                       name="description"
                       rows={3}
@@ -134,6 +143,7 @@ const AddItems = () => {
                         http://
                       </span>
                       <input
+                        ref={imgurlRef}
                         type="text"
                         name="imgURL"
                         id="imgURL"
