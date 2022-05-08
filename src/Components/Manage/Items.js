@@ -1,6 +1,6 @@
 import React from "react";
 
-const Items = ({product}) => {
+const Items = ({ product }) => {
   return (
     <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
       <td
@@ -9,7 +9,7 @@ const Items = ({product}) => {
       >
         {product.name}
       </td>
-      <td className="px-6 py-4"><img src={product.imgURL} alt="" /></td>
+      <td className="px-6 py-4">{product.quantity}</td>
       <td className="px-6 py-4">{product.supplier}</td>
       <td className="px-6 py-4">{product.price}</td>
       <td className="px-6 py-4 text-right">

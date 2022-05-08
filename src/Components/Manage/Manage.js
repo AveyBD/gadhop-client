@@ -24,7 +24,7 @@ const Manage = () => {
                 Product name
               </th>
               <th scope="col" className="px-6 py-3">
-                Image
+                Quantity
               </th>
               <th scope="col" className="px-6 py-3">
                 Supplier
