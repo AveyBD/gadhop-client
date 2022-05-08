@@ -1,6 +1,11 @@
+import { data } from "autoprefixer";
 import React, { useRef } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast, { Toaster } from "react-hot-toast";
+import auth from "../../firebase.init";
 
 const AddItems = () => {
+  const [user] = useAuthState(auth);
   const nameRef = useRef("");
   const supplierRef = useRef("");
   const priceRef = useRef();
@@ -13,8 +18,8 @@ const AddItems = () => {
     const price = priceRef.current.value;
     const description = descriptionRef.current.value;
     const imgURL = imgurlRef.current.value;
-    const product = {name, supplier, price, description, imgURL};
-    console.log(product);
+    const owner = user.email;
+    const product = { name, supplier, price, description, imgURL, owner };
     const url = "http://localhost:5000/product";
     fetch(url, {
       method: "POST",
@@ -25,9 +30,11 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    toast.success("Successfully Added!");
   };
   return (
     <div className="md:w-3/4 mt-3 md:mt-6 mx-auto">
+      <Toaster position="top-right" reverseOrder={false}></Toaster>
       <h3 className="text-3xl text-center font-bold leading-6 text-gray-900 mb-3 md:mb-8">
         Add Product
       </h3>
