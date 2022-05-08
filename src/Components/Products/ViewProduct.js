@@ -43,6 +43,7 @@ const ViewProduct = () => {
               <button className="px-4 py-2 bg-green-400 rounded text-white font-bold">
                 Deliver
               </button>
+              <input className="border rounded pl-2" type="number" name="stockQ" id="stockQ" placeholder="Quantity" />
               <button className="px-4 py-2 bg-green-400 rounded text-white font-bold">
                 Add Stock
               </button>
