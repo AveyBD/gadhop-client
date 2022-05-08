@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const AddItems = () => {
+  const name = useRef("");
+  const supplier = useRef("");
+  const price = useRef();
+  const description = useRef("");
+  const imgurl = useRef("");
+  const handleAddItem = (e) => {
+    e.preventDefault();
+    console.log("clicked");
+  };
   return (
     <div className="md:w-3/4 mt-3 md:mt-6 mx-auto">
       <h3 className="text-3xl text-center font-bold leading-6 text-gray-900 mb-3 md:mb-8">
@@ -14,18 +23,18 @@ const AddItems = () => {
               the products.
             </p>
             <h2 className="text-xl font-bold">Rules:</h2>
-            <div class="bg-white rounded-lg shadow w-full">
-              <ul class="divide-y divide-gray-100">
-                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+            <div className="bg-white rounded-lg shadow w-full">
+              <ul className="divide-y divide-gray-100">
+                <li className="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
                   Add Name Properly.
                 </li>
-                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                <li className="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
                   Search Before Add.
                 </li>
-                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                <li className="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
                   Careful about supplier name.
                 </li>
-                <li class="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
+                <li className="p-3 rounded hover:text-lg hover:bg-green-600 hover:text-white">
                   Use imgBB for image link.
                 </li>
               </ul>
@@ -33,7 +42,7 @@ const AddItems = () => {
           </div>
         </div>
         <div className="mt-5 md:mt-0 md:col-span-2">
-          <form>
+          <form onSubmit={handleAddItem}>
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div>
