@@ -19,9 +19,10 @@ const AddItems = () => {
     const price = priceRef.current.value;
     const description = descriptionRef.current.value;
     const imgURL = imgurlRef.current.value;
-    const owner = user.email;
+    const owneremail = user.email;
     const quantity = quantityRef.current.value;
-    const product = { name, supplier, price, quantity, description, imgURL, owner, };
+    const userid = user.uid;
+    const product = { name, supplier, price, quantity, description, imgURL, owneremail, userid };
     const url = "https://gadhop.herokuapp.com/product";
     fetch(url, {
       method: "POST",
