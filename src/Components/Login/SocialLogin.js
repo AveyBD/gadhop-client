@@ -3,8 +3,8 @@ import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import toast, { Toaster } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 import Loader from "../Shared/Loader";
 
@@ -20,7 +20,7 @@ const SocialLogin = () => {
   };
 
   if (gError || error) {
-    toast(gError?.message || error?.message);
+    toast.error(gError?.message || error?.message);
   }
   if (gLoading || loading) {
     return <Loader></Loader>;
@@ -32,6 +32,7 @@ const SocialLogin = () => {
 
   return (
     <div>
+      <Toaster position="top-right" reverseOrder={false}></Toaster>
       <div className="my-2 mb-2 flex flex-row justify-center">
         <span className="absolute mb-2 bg-green-100 mb-2 px-4">
           Social Login
@@ -90,7 +91,6 @@ const SocialLogin = () => {
           Sign-in with Github
         </button>
       </div>
-      <ToastContainer></ToastContainer>
     </div>
   );
 };

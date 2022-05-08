@@ -11,7 +11,10 @@ const Manage = () => {
   }, []);
   return (
     <div>
-      <h2>Manage Here {products.length}</h2>
+      <h2>Manage Here {products.length}
+      {
+          console.log(products)
+      }</h2>
     </div>
   );
 };
