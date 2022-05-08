@@ -20,7 +20,7 @@ const AddItems = () => {
     const imgURL = imgurlRef.current.value;
     const owner = user.email;
     const product = { name, supplier, price, description, imgURL, owner };
-    const url = "http://localhost:5000/product";
+    const url = "https://gadhop.herokuapp.com/product";
     fetch(url, {
       method: "POST",
       headers: {
