@@ -9,7 +9,7 @@ const Items = ({product}) => {
       >
         {product.name}
       </td>
-      <td className="px-6 py-4">{product.supplier}</td>
+      <td className="px-6 py-4"><img src={product.imgURL} alt="" /></td>
       <td className="px-6 py-4">{product.supplier}</td>
       <td className="px-6 py-4">{product.price}</td>
       <td className="px-6 py-4 text-right">

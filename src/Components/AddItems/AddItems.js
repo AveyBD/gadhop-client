@@ -11,6 +11,7 @@ const AddItems = () => {
   const priceRef = useRef();
   const descriptionRef = useRef("");
   const imgurlRef = useRef("");
+  const quantityRef = useRef('');
   const handleAddItem = (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
@@ -19,7 +20,8 @@ const AddItems = () => {
     const description = descriptionRef.current.value;
     const imgURL = imgurlRef.current.value;
     const owner = user.email;
-    const product = { name, supplier, price, description, imgURL, owner };
+    const quantity = quantityRef.current.value;
+    const product = { name, supplier, price, quantity, description, imgURL, owner, };
     const url = "https://gadhop.herokuapp.com/product";
     fetch(url, {
       method: "POST",
@@ -128,6 +130,26 @@ const AddItems = () => {
                         placeholder="947"
                       />
                     </div>
+                    
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="quantity"
+                    className="block  font-medium text-gray-700"
+                  >
+                    Quantity
+                  </label>
+                  <div className="mt-1">
+                    <input
+                    required
+                      ref={quantityRef}
+                      id="quantity"
+                      name="quantity"
+                      className="shadow-sm pl-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm: border border-gray-300 rounded-md"
+                      placeholder="Apple Computer, Inc."
+                      defaultValue={""}
+                    />
                   </div>
                 </div>
                 <div>
