@@ -1,5 +1,8 @@
 # Warehouse Management System
 
+Live Site: [Gadget Hope Live Site](https://gadhop.web.app/ "Gadget Hope Live Site")
+Server Link: [Gadget Hope Server Site](https://gadhop.herokuapp.com/ "Gadget Hope Live Site")
+
 ## Technology Used
 - React
 - TailwindCSS
@@ -7,7 +10,10 @@
 
 ## Features
 
-- A lot
+- You Can Add Product
+- You Can Deliver Product 
+- You Can Delete Product
+- Stock Quantity
 
 
 ## Tasks
