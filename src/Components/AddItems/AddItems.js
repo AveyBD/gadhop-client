@@ -77,6 +77,7 @@ const AddItems = () => {
                   </label>
                   <div className="mt-1">
                     <input
+                    required
                       ref={nameRef}
                       id="name"
                       name="name"
@@ -95,6 +96,7 @@ const AddItems = () => {
                   </label>
                   <div className="mt-1">
                     <input
+                    required
                       ref={supplierRef}
                       id="supplier"
                       name="supplier"
@@ -117,6 +119,7 @@ const AddItems = () => {
                         $
                       </span>
                       <input
+                      required
                         ref={priceRef}
                         type="number"
                         name="price"
@@ -136,6 +139,7 @@ const AddItems = () => {
                   </label>
                   <div className="mt-1">
                     <textarea
+                    required
                       ref={descriptionRef}
                       id="description"
                       name="description"
@@ -161,6 +165,7 @@ const AddItems = () => {
                         http://
                       </span>
                       <input
+                      required
                         ref={imgurlRef}
                         type="text"
                         name="imgURL"
