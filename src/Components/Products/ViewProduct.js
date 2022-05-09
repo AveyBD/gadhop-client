@@ -37,7 +37,7 @@ const ViewProduct = () => {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div>
           <img
-            className="h-96 w-96"
+            className="h-96 w-96 border border-green-200 rounded"
             src={sProduct.imgURL}
             alt={sProduct.name}
           />
