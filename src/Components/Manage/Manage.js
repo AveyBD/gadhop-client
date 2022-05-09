@@ -1,5 +1,6 @@
 import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import Items from "./Items";
 
 const Manage = () => {
@@ -13,6 +14,7 @@ const Manage = () => {
 
   return (
     <div className="md:w-3/4 mx-auto mt-6">
+    
       <h2 className="text-3xl font-bold text-center mb-4">
         Manage All Product
       </h2>

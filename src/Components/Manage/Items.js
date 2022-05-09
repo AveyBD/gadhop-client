@@ -5,6 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Items = ({ product }) => {
@@ -16,7 +17,24 @@ const Items = ({ product }) => {
         method: "DELETE",
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount === 1) {
+            toast.success('Product Successfully Deleted!', {
+              style: {
+                border: '1px solid #4ade80',
+                padding: '16px',
+                color: '#14532d',
+              },
+              iconTheme: {
+                primary: '#14532d',
+                secondary: '#FFFAEE',
+              },
+            });
+          }else{
+            toast.error("Ops! Something Went Wrong")
+          }
+        });
     }
   };
   return (
@@ -25,6 +43,7 @@ const Items = ({ product }) => {
         scope="row"
         className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
       >
+        <Toaster position="top-right" reverseOrder={false}></Toaster>
         {product.name}
       </td>
       <td className="px-6 py-4">{product.quantity}</td>
