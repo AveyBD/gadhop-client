@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import useMyProducts from "../../hooks/useMyProducts";
 import Items from "../Manage/Items";
@@ -53,6 +54,7 @@ const MyItems = () => {
       <h2 className="text-3xl font-bold text-center mb-4">
         Products Uploaded By You
       </h2>
+
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -81,6 +83,7 @@ const MyItems = () => {
           </tbody>
         </table>
       </div>
+      <Link className="w-full bg-green-400 text-center block py-2 rounded mt-6 font-2xl hover:bg-green-700 hover:text-white" to={'/add'}>Add More Product</Link>
     </div>
   );
 };
