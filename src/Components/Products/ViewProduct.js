@@ -15,9 +15,9 @@ const ViewProduct = () => {
   console.log();
   const handleUpdateQty = (e) => {
     e.preventDefault();
-    const quantity = parseInt(quantityRef.current.value) + parseInt(sProduct.quantity);
-    const newQty = {quantity}
-    console.log(newQty);
+    const quantity =
+      parseInt(quantityRef.current.value) + parseInt(sProduct.quantity);
+    const newQty = { quantity };
     const url = `https://gadhop.herokuapp.com/sview/${id}`;
     fetch(url, {
       method: "PUT",
