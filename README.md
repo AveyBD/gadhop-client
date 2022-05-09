@@ -3,10 +3,17 @@
 Live Site: [Gadget Hope Live Site](https://gadhop.web.app/ "Gadget Hope Live Site")
 Server Link: [Gadget Hope Server Site](https://gadhop.herokuapp.com/ "Gadget Hope Live Site")
 
+
+In this site, I have made an inventory system where user can upload delete their product. There is a view product option where he can deliver his product also update the quantity.
+
 ## Technology Used
 - React
 - TailwindCSS
 - HeadlessUI
+- FontAwesome
+- React Hot Toast
+- Firebase
+- MongoDB
 
 ## Features
 
@@ -19,32 +26,32 @@ Server Link: [Gadget Hope Server Site](https://gadhop.herokuapp.com/ "Gadget Hop
 ## Tasks
 - [x] Create Two Repo
 - [x] Push To Heroku and Firebase
-- [ ] Site must be about stock management 
-- [ ] Design should be good
-- [ ] Homepage with nav
-- [ ] Hero Banner
-- [ ] Show Maximum 6 Item in Homepage
-- [ ] Add Another two section related the website.
-- [ ] Footer
-- - [ ]  **Inventory Section**
-- - [ ] Should have item image
-- - [ ] Item Name
-- - [ ] Price
-- - [ ] Short Description 
-- - [ ] Stock Quantity
-- - [ ] Supplier Name
-- - [ ] Edit Button
-- [ ] Update Button will take to Update Product.
-- [ ] Update Product Page will be protected route 
-- [ ] A unique **Delivered** button will decrease the quantity on product update page
-- [ ] Simple form on Quantity Update
-- [ ] Manage Inventory button bellow the inventory section will take user to all inventory section use react table with delete button
-- [ ] Add new Item Page
-- [ ] email and password based auth 
-- [ ] Google / Github Login 
-- [ ] if(user) show -> Manage Items // Add Items // My Items // Logout
-- [ ] No Fake Data
-- [ ] Use MongoDB
-- [ ] A blog page with four ans
-- [ ] A good 404 Page
-- [ ] 
+- [x] Site must be about stock management 
+- [x] Design should be good
+- [x] Homepage with nav
+- [x] Hero Banner
+- [x] Show Maximum 6 Item in Homepage
+- [x] Add Another two section related the website.
+- [x] Footer
+- - [x]  **Inventory Section**
+- - [x] Should have item image
+- - [x] Item Name
+- - [x] Price
+- - [x] Short Description 
+- - [x] Stock Quantity
+- - [x] Supplier Name
+- - [x] Edit Button
+- [x] Update Button will take to Update Product.
+- [x] Update Product Page will be protected route 
+- [x] A unique **Delivered** button will decrease the quantity on product update page
+- [x] Simple form on Quantity Update
+- [x] Manage Inventory button bellow the inventory section will take user to all inventory section use react table with delete button
+- [x] Add new Item Page
+- [x] email and password based auth 
+- [x] Google / Github Login 
+- [x] if(user) show -> Manage Items // Add Items // My Items // Logout
+- [x] No Fake Data
+- [x] Use MongoDB
+- [x] A blog page with four ans
+- [x] A good 404 Page
+- [x] JWT 
