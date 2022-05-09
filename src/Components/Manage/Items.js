@@ -9,8 +9,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Items = ({ product, handleDelete }) => {
-  console.log(handleDelete);
-  
   return (
     <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
       <td
