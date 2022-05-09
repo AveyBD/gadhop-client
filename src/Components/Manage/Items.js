@@ -23,18 +23,18 @@ const Items = ({ product, handleDelete }) => {
       <td className="px-6 py-4">{product.quantity}</td>
       <td className="px-6 py-4">{product.supplier}</td>
       <td className="px-6 py-4">{product.price}</td>
-      <td className="px-6 py-4 flex gap-1">
-        <Link to={`/view/${product._id}`} className="text-green-600">
+      <td className="px-6 py-4 flex gap-2">
+        <Link to={`/view/${product._id}`} className="text-xl text-green-600 hover:scale-125 ease-in-out duration-500">
           <FontAwesomeIcon icon={faEye} />
         </Link>
-        <Link to={`/view/${product._id}`} className="text-green-800">
+        <Link to={`/update/${product._id}`} className="text-xl text-black hover:scale-125 ease-in-out duration-500">
           <FontAwesomeIcon icon={faPenToSquare} />
         </Link>
         <button
           onClick={() => handleDelete(product._id)}
-          className="font-xl text-red-800"
+          className="text-red-800"
         >
-          <FontAwesomeIcon icon={faTrashAlt} />
+          <FontAwesomeIcon className="text-xl hover:scale-125 ease-in-out duration-500" icon={faTrashAlt} />
         </button>
       </td>
     </tr>
