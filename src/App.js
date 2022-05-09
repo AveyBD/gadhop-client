@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Manage from "./Components/Manage/Manage";
 import MyItems from "./Components/MyItems/MyItems";
+import UpdateProduct from "./Components/Products/UpdateProduct";
 import ViewProduct from "./Components/Products/ViewProduct";
 import Register from "./Components/Register/Register";
 import Footer from "./Components/Shared/Footer";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/manage" element={<RequiredAuth><Manage/></RequiredAuth>}></Route>
         <Route path="/myproduct" element={<RequiredAuth><MyItems></MyItems></RequiredAuth>}></Route>
         <Route path="/add" element={<RequiredAuth><AddItems></AddItems></RequiredAuth>}></Route>
+        <Route path="/update" element={<RequiredAuth><UpdateProduct></UpdateProduct></RequiredAuth>}></Route>
         <Route path="/view/:id" element={<ViewProduct></ViewProduct>}></Route>
       </Routes>
       <Footer></Footer>
