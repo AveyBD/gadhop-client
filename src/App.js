@@ -24,7 +24,7 @@ function App() {
         <Route path="/manage" element={<RequiredAuth><Manage/></RequiredAuth>}></Route>
         <Route path="/myproduct" element={<RequiredAuth><MyItems></MyItems></RequiredAuth>}></Route>
         <Route path="/add" element={<RequiredAuth><AddItems></AddItems></RequiredAuth>}></Route>
-        <Route path="/update" element={<RequiredAuth><UpdateProduct></UpdateProduct></RequiredAuth>}></Route>
+        <Route path="/update/:id" element={<RequiredAuth><UpdateProduct></UpdateProduct></RequiredAuth>}></Route>
         <Route path="/view/:id" element={<ViewProduct></ViewProduct>}></Route>
       </Routes>
       <Footer></Footer>
