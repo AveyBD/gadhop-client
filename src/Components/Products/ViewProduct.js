@@ -31,6 +31,24 @@ const ViewProduct = () => {
     toast.success("Successfully Updated!");
   };
 
+  const handleDelivery = (e) => {
+    e.preventDefault();
+    const quantity = parseInt(sProduct.quantity) - 1;
+
+    const newUpQ = { quantity };
+    console.log(newUpQ);
+    const url = `https://gadhop.herokuapp.com/sview/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUpQ),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    toast.success("Successfully Delivered One Item!");
+  };
   return (
     <div className="w-full md:w-3/4 mx-auto mt-6">
       <Toaster position="top-right" reverseOrder={false}></Toaster>
@@ -61,7 +79,10 @@ const ViewProduct = () => {
           </p>
           <p> {sProduct.description}</p>
           <div className="flex gap-2 justify-evenly">
-            <button className="px-4 w-full py-2 bg-green-400 rounded text-white font-bold">
+            <button
+              onClick={handleDelivery}
+              className="px-4 w-full py-2 bg-green-400 rounded text-white font-bold"
+            >
               Deliver
             </button>
             <form onSubmit={handleUpdateQty}>
