@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Manage from "./Components/Manage/Manage";
 import MyItems from "./Components/MyItems/MyItems";
+import NotFound from "./Components/NotFound/NotFound";
 import UpdateProduct from "./Components/Products/UpdateProduct";
 import ViewProduct from "./Components/Products/ViewProduct";
 import Register from "./Components/Register/Register";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/add" element={<RequiredAuth><AddItems></AddItems></RequiredAuth>}></Route>
         <Route path="/update/:id" element={<RequiredAuth><UpdateProduct></UpdateProduct></RequiredAuth>}></Route>
         <Route path="/view/:id" element={<RequiredAuth><ViewProduct></ViewProduct></RequiredAuth>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
