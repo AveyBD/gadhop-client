@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AddItems from "./Components/AddItems/AddItems";
+import Blog from "./Components/Blog/Blog";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Manage from "./Components/Manage/Manage";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/manage" element={<RequiredAuth><Manage/></RequiredAuth>}></Route>
         <Route path="/myproduct" element={<RequiredAuth><MyItems></MyItems></RequiredAuth>}></Route>
         <Route path="/add" element={<RequiredAuth><AddItems></AddItems></RequiredAuth>}></Route>
+        <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/update/:id" element={<RequiredAuth><UpdateProduct></UpdateProduct></RequiredAuth>}></Route>
         <Route path="/view/:id" element={<RequiredAuth><ViewProduct></ViewProduct></RequiredAuth>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
