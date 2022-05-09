@@ -20,7 +20,6 @@ const UpdateProduct = () => {
       .then((res) => res.json())
       .then((data) => setSProduct(data));
   }, []);
-  console.log(sProduct);
   const handleUpdateItem = (e) => {
     e.preventDefault();
     const name = nameRef.current.value;

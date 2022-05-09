@@ -24,7 +24,7 @@ const ViewProduct = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(quantity),
+      body: JSON.stringify(newQty),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
