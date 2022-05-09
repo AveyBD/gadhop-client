@@ -24,7 +24,7 @@ const Pricing = () => {
                         <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">Full access to all features and no credit card required</p>
                     </div>
                     <div role="listitem" className="bg-white cursor-pointer shadow rounded-lg mt-3 flex relative z-30">
-                        <div className="w-2.5  h-auto bg-indigo-700 rounded-tl-md rounded-bl-md" />
+                        <div className="w-2.5  h-auto bg-green-700 rounded-tl-md rounded-bl-md" />
                         <div className="w-full p-8">
                             <div className="md:flex items-center justify-between">
                                 <h2 className="text-2xl font-semibold leading-6 text-gray-800">Personal</h2>
