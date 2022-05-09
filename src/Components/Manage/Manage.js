@@ -1,6 +1,7 @@
 import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import Items from "./Items";
 
@@ -83,6 +84,7 @@ const Manage = () => {
           </tbody>
         </table>
       </div>
+      <Link className="w-full bg-green-400 text-center block py-2 rounded mt-6 font-2xl hover:bg-green-700 hover:text-white" to={'/add'}>Add More Product</Link>
     </div>
   );
 };
