@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import auth from "../../firebase.init";
 import Items from "../Manage/Items";
 
@@ -12,6 +13,35 @@ const MyItems = () => {
       .then((res) => res.json())
       .then((data) => setMyProducts(data));
   }, []);
+
+  const handleDelete = (id) => {
+    const url = `https://gadhop.herokuapp.com/view/${id}`;
+    const askToSure = window.confirm("Are You Sure?");
+    if (askToSure) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount === 1) {
+            toast.success('Product Successfully Deleted!', {
+              style: {
+                border: '1px solid #4ade80',
+                padding: '16px',
+                color: '#14532d',
+              },
+              iconTheme: {
+                primary: '#14532d',
+                secondary: '#FFFAEE',
+              },
+            });
+          }else{
+            toast.error("Ops! Something Went Wrong")
+          }
+        });
+    }
+  };
   return (
     <div className="md:w-3/4 mx-auto mt-6">
       <h2 className="text-3xl font-bold text-center mb-4">
@@ -40,7 +70,7 @@ const MyItems = () => {
           </thead>
           <tbody>
             {myProducts.map((product) => (
-              <Items key={product._id} product={product}></Items>
+              <Items key={product._id} product={product} handleDelete={handleDelete}></Items>
             ))}
           </tbody>
         </table>

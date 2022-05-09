@@ -1,20 +1,53 @@
 import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import useProducts from "../../hooks/useProducts";
 import Items from "./Items";
 
 const Manage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useProducts();
 
-  useEffect(() => {
-    fetch("https://gadhop.herokuapp.com/manage")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://gadhop.herokuapp.com/manage")
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
+
+  const handleDelete = (id) => {
+    const url = `https://gadhop.herokuapp.com/view/${id}`;
+    const askToSure = window.confirm("Are You Sure?");
+    if (askToSure) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount === 1) {
+            toast.success("Product Successfully Deleted!", {
+              style: {
+                border: "1px solid #4ade80",
+                padding: "16px",
+                color: "#14532d",
+              },
+              iconTheme: {
+                primary: "#14532d",
+                secondary: "#FFFAEE",
+              },
+            });
+            const restProduct = products.filter(
+              (product) => product._id !== id
+            );
+            setProducts(restProduct);
+          } else {
+            toast.error("Ops! Something Went Wrong");
+          }
+        });
+    }
+  };
 
   return (
     <div className="md:w-3/4 mx-auto mt-6">
-    
       <h2 className="text-3xl font-bold text-center mb-4">
         Manage All Product
       </h2>
@@ -40,7 +73,13 @@ const Manage = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) =><Items key={product._id} product={product}></Items>)}
+            {products.map((product) => (
+              <Items
+                key={product._id}
+                product={product}
+                handleDelete={handleDelete}
+              ></Items>
+            ))}
           </tbody>
         </table>
       </div>
