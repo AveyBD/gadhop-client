@@ -58,14 +58,14 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/"
+                    to="/blog"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Blog
                   </Link>
 
                   <Link
-                    to="/"
+                    to="/contact"
                     className="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Contact
@@ -160,28 +160,28 @@ const Header = () => {
                 </Link>
 
                 <Link
-                  to="/"
+                  to="/manage"
                   className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Manage Inventory
                 </Link>
 
                 <Link
-                  to="/"
+                  to="/myproduct"
                   className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   My Items
                 </Link>
 
                 <Link
-                  to="/"
+                  to="/blog"
                   className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Blog
                 </Link>
 
                 <Link
-                  to="/"
+                  to="/contact"
                   className="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Contact
