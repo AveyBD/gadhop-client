@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import AddItems from "./Components/AddItems/AddItems";
 import Blog from "./Components/Blog/Blog";
+import Contact from "./Components/Contact/Contact";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Manage from "./Components/Manage/Manage";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/loader" element={<Loader/>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/manage" element={<RequiredAuth><Manage/></RequiredAuth>}></Route>
         <Route path="/myproduct" element={<RequiredAuth><MyItems></MyItems></RequiredAuth>}></Route>
