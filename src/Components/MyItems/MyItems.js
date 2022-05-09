@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import auth from "../../firebase.init";
+import useMyProducts from "../../hooks/useMyProducts";
 import Items from "../Manage/Items";
 
 const MyItems = () => {
-  const [myProducts, setMyProducts] = useState([]);
-  const [user] = useAuthState(auth);
+  // const [myProducts, setMyProducts] = useState([]);
+  // const [user] = useAuthState(auth);
 
-  useEffect(() => {
-    fetch(`https://gadhop.herokuapp.com/my?uid=${user.uid}`)
-      .then((res) => res.json())
-      .then((data) => setMyProducts(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://gadhop.herokuapp.com/my?uid=${user.uid}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setMyProducts(data));
+  // }, []);
+  const [myProducts, setMyProducts] = useMyProducts();
 
   const handleDelete = (id) => {
     const url = `https://gadhop.herokuapp.com/view/${id}`;
@@ -36,6 +38,10 @@ const MyItems = () => {
                 secondary: '#FFFAEE',
               },
             });
+            const restProduct = myProducts.filter(
+              (product) => product._id !== id
+            );
+            setMyProducts(restProduct);
           }else{
             toast.error("Ops! Something Went Wrong")
           }
