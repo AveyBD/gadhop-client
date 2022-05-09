@@ -12,10 +12,10 @@ const ViewProduct = () => {
       .then((res) => res.json())
       .then((data) => setSProduct(data));
   }, []);
-  console.log(sProduct);
+  console.log();
   const handleUpdateQty = (e) => {
     e.preventDefault();
-    const quantity = quantityRef.current.value;
+    const quantity = parseInt(quantityRef.current.value) + parseInt(sProduct.quantity);
     const newQty = {quantity}
     console.log(newQty);
     const url = `https://gadhop.herokuapp.com/sview/${id}`;
