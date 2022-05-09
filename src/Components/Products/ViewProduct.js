@@ -61,12 +61,12 @@ const ViewProduct = () => {
           </p>
           <p> {sProduct.description}</p>
           <div className="flex gap-2 justify-evenly">
-            <button className="px-4 py-2 bg-green-400 rounded text-white font-bold">
+            <button className="px-4 w-full py-2 bg-green-400 rounded text-white font-bold">
               Deliver
             </button>
             <form onSubmit={handleUpdateQty}>
               <input
-                className="border rounded pl-2 h-full mr-2"
+                className="border rounded pl-2 h-full"
                 type="number"
                 name="stockQ"
                 ref={quantityRef}
@@ -74,7 +74,7 @@ const ViewProduct = () => {
                 placeholder="Quantity"
               />
               <input
-                className="px-4 py-2 bg-green-400 rounded text-white font-bold"
+                className="w-full mt-2 px-4 py-2 bg-green-400 rounded text-white font-bold"
                 type="submit"
                 value="Add Stock"
               />
